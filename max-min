@@ -1,0 +1,33 @@
+//Diego Renesto
+//16 Gennaio 2024
+/*Scrivere un  programma in C che 
+dopo aver inserito una serie di N numeri (con N scelto dall'utente) 
+determini il massimo ed il minimo, dei numeri inseriti.
+*/
+#include <stdio.h>
+int main() {
+    int num, N;
+    int min, max;
+
+    //Chiedo all'utente quanti numeri N vuole visualizzare
+    printf("Inserisci il numero di elementi: ");
+    scanf("%d", &N);
+    
+    for (int i = 1; i <= N; i++) {
+        printf("Inserisci il %d° numero: ", i);
+        scanf("%d", &num);
+
+        if (num < min) {
+            min = num;
+        }
+
+        if (num > max) {
+            max = num;
+        }
+    }
+    //end for
+
+    printf("Il massimo e' %d\n", max);
+    printf("Il minimo e' %d\n", min);
+    
+}
