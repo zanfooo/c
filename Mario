@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main() {
+    int soldi;
+    int min, max;
+//Chiedo all'utente quanti numeri vuole inserire
+    printf("Quanti soldi ha Mario? ");
+    scanf("%d", &soldi);
+    
+    while (soldi>0) {
+        printf("Inserisci 1 se Mario vuole acquistare una pastina che costa 1 euro o  2 per un panino che costa 1,5 euro. \n Inserisci 2 se Mario vuole acquistare un panino che costa 1,5 euro. \n altrimenti qualsiasi altro numero per uscire dal programma.", scelta);
+        scanf("%d", &num);
+
+        if (scelta=1) {
+            min = num;
+        }
+        if (scelta=2) {
+            max = num;
+        } else
+       
+    }
+
+    printf("Il massimo e' %d\n", max);
+    printf("Il minimo e' %d\n", min);
+    
+}
