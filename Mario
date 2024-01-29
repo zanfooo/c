@@ -1,25 +1,32 @@
 #include <stdio.h>
+
 int main() {
-    int soldi;
-    int min, max;
-//Chiedo all'utente quanti numeri vuole inserire
-    printf("Quanti soldi ha Mario? ");
-    scanf("%d", &soldi);
+    float soldi;
+    int giorni = 0;
+    int pastine = 0;
+    int panini = 0;
     
-    while (soldi>0) {
-        printf("Inserisci 1 se Mario vuole acquistare una pastina che costa 1 euro o  2 per un panino che costa 1,5 euro. \n Inserisci 2 se Mario vuole acquistare un panino che costa 1,5 euro. \n altrimenti qualsiasi altro numero per uscire dal programma.", scelta);
-        scanf("%d", &num);
-
-        if (scelta=1) {
-            min = num;
+    printf("Inserisci la quantita' di soldi di Mario: ");
+    scanf("%f", &soldi);
+    
+    while (soldi >= 1) {
+        char scelta;
+        printf("Cosa vuole mangiare Mario? digitare: (P = pastina o N = panino): ");
+        scanf(" %c", &scelta);
+        
+        if (scelta == 'P') {
+            soldi -= 1;
+            pastine++;
+        } else if (scelta == 'N') {
+            soldi -= 1.5;
+            panini++;
         }
-        if (scelta=2) {
-            max = num;
-        } else
-       
+        
+        giorni++;
     }
-
-    printf("Il massimo e' %d\n", max);
-    printf("Il minimo e' %d\n", min);
     
+    printf("Mario ha mangiato per %d giorni.\n", giorni);
+    printf("Mario ha mangiato %d pastine e %d panini.\n", pastine, panini);
+    
+    return 0;
 }
