@@ -1,0 +1,108 @@
+//Zanforlin Nicolò
+//4 Marzo 2024
+/*Scrivere un programma in c che dopo aver inserito da tastiera una serie di N numeri, con N scelto
+dall’utente determini e visualizzi in Output:
+1) La media dei numeri inseriti;
+2) La media dei numeri pari inseriti;
+3) La media dei numeri dispari inseriti;
+4) Il massimo ed il minimo dei numeri pari inseriti;
+5) Il massimo ed il minimo dei numeri dispari inseriti;
+I numeri inseriti devono essere maggiori di zero, se il numero inserito dall’utente risulta essere minore o
+uguale a zero il programma deve permettere il reinserimento.
+
+Utilizzare i vettori per la svolgimento della soluzione.
+*/
+#include <stdio.h>
+
+
+int main() {
+    int N, scelta;
+    
+    // Chiedi all'utente il numero di elementi da inserire
+    printf("Inserisci il numero di elementi (N): ");
+    scanf("%d", &N);
+
+    // Verifica che N sia maggiore di zero
+    while (N <= 0) {
+        printf("Il numero deve essere maggiore di zero. Reinserisci N: ");
+        scanf("%d", &N);
+    }
+
+    // Dichiarazione del vettore
+    int numeri[N];
+
+    // Inizializzazione delle variabili
+    int sommaTotale = 0, sommaPari = 0, sommaDispari = 0, countPari = 0, countDispari = 0, maxPari, minPari, maxDispari, minDispari;
+
+    // Input dei numeri
+    for (int i = 0; i < N; i++) {
+        do {
+            printf("Inserisci il numero %d: ", i + 1);
+            scanf("%d", &numeri[i]);
+
+            if (numeri[i] <= 0) {
+                printf("Il numero deve essere maggiore di zero. Reinserisci.\n");
+            }
+        } while (numeri[i] <= 0);
+
+        // Aggiorna le somme totali e parziali
+        sommaTotale += numeri[i];
+        if (numeri[i] % 2 == 0) {
+            sommaPari += numeri[i];
+            countPari++;
+
+            // Inizializza i massimi e minimi dei numeri pari al primo numero pari inserito
+            if (countPari == 1) {
+                maxPari = minPari = numeri[i];
+            } else {
+                if (numeri[i] > maxPari) {
+                    maxPari = numeri[i];
+                }
+                if (numeri[i] < minPari) {
+                    minPari = numeri[i];
+                }
+            }
+        } else {
+            sommaDispari += numeri[i];
+            countDispari++;
+
+            // Inizializza i massimi e minimi dei numeri dispari al primo numero dispari inserito
+            if (countDispari == 1) {
+                maxDispari = minDispari = numeri[i];
+            } else {
+                if (numeri[i] > maxDispari) {
+                    maxDispari = numeri[i];
+                }
+                if (numeri[i] < minDispari) {
+                    minDispari = numeri[i];
+                }
+            }
+        }
+    }
+
+    // Calcola la media totale
+double mediaTotale;
+if (N > 0) 
+    mediaTotale = (double)sommaTotale / N;
+
+// Calcola la media dei numeri pari
+double mediaPari;
+if (countPari > 0)
+    mediaPari = (double)sommaPari / countPari;
+
+// Calcola la media dei numeri dispari
+double mediaDispari;
+if (countDispari > 0)
+    mediaDispari = (double)sommaDispari / countDispari;
+
+    // Scelta e stampa dei risultati
+    printf("\nRisultati:\n");
+    printf("\nRisultati:\n");
+    printf("Media dei numeri inseriti: %.2lf\n", mediaTotale);
+    printf("Media dei numeri pari inseriti: %.2lf\n", mediaPari);
+    printf("Media dei numeri dispari inseriti: %.2lf\n", mediaDispari);
+    printf("Massimo e minimo dei numeri pari: %d (max), %d (min)\n", maxPari, minPari);
+    printf("Massimo e minimo dei numeri dispari: %d (max), %d (min)\n", maxDispari, minDispari);
+
+    return 0;
+}
