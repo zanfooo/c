@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main(){
+
+    //dichiarazione delle variabili
+    int lunghezza;
+
+    printf("Scrivi la lunghezza del vettore");
+    scanf("%d", &lunghezza);
+
+    int vettore1 [lunghezza];
+    int vettore2 [lunghezza];
+    int vettore3 [lunghezza];
+
+    for (int i = 0; i < lunghezza; i++)
+    {
+        printf("inserisci il %d numero del primo vettore", i +1);
+        scanf("%d", vettore1[i]);
+
+        printf("inserisci il %d numero del secondo vettore", i +1);
+        scanf("%d", vettore2[i]);
+
+        vettore3[i] = vettore1[i] + vettore2[i];
+    }
+    
+    for (int i = 0; i < lunghezza; i++){
+    printf("terzo vettore: %d ", vettore3[i+1]);
+    }
+}
