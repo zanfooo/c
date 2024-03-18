@@ -1,0 +1,35 @@
+#include <stdio.h>
+ 
+int main(){
+    int lunghezza;
+    int j=1;
+    
+    printf("Inserisci la lunghezza dei due vettori: ");
+    scanf("%d", &lunghezza);
+
+    int vetA[lunghezza];
+    int vetB[lunghezza];
+    int vetC[lunghezza];
+
+    for (int i = 0; i < lunghezza; i++)
+    {
+        printf("Inserisci il %d° numero del 1° vettore: ", j);
+        scanf("%d", &vetA[i]);
+
+        printf("Inserisci il %d° numero del 2° vettore: ", j);
+        scanf("%d", &vetB[i]);
+
+        vetC[i] = vetA[i] + vetB[i];
+        
+        j++;
+    }
+    
+    j=1;
+
+    for (int i = 0; i < lunghezza; i++)
+    {
+        printf("%d° numero del 3° vettore: %d\n", j, vetC[i]);
+        j++;
+    }
+    return 0;
+}
