@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    int n, x, i, j, temp;
+    
+    // Input del numero di elementi nel vettore
+    printf("Inserisci il numero di elementi nel vettore: ");
+    scanf("%d", &n);
+    
+    int arr[n];
+    
+    // Input degli elementi del vettore
+    printf("Inserisci gli elementi del vettore:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    // Input del numero di elementi da visualizzare
+    printf("Inserisci il numero di elementi ordinati da visualizzare: ");
+    scanf("%d", &x);
+    
+    // Ordinamento del vettore usando Bubble Sort
+    for (i = 0; i < n-1; i++) {
+        for (j = i+1; j < n; j++) {
+            if (arr[i] > arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    
+    // Visualizzazione dei primi x elementi ordinati
+    printf("I primi %d numeri in ordine crescente sono:\n", x);
+    for (i = 0; i < x && i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    
+    return 0;
+}
